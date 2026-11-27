@@ -1,0 +1,286 @@
+/* Inställningar för utseende av sidan*/
+* {
+    box-sizing: border-box;
+}
+
+/* Grundinställningar för sidans färger, typsnitt och grundtext */
+body {
+    margin: 0;
+    background-color: #f8f0df;
+    color: #49372e;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Huvudrubriker färg gäller alla rubriker från h1 till h4*/
+h1, h2, h3, h4 {
+    color: #563b30;
+}
+
+/* Huvudrubrikens storlek och placerig */
+h1 {
+    font-size: 100px;
+    font-weight: bold;
+    text-align: center;
+}
+/* Sidans övre del. 
+position: relative - säger till att ett positionerat 
+element inuti header kan placeras i förhollande till header.*/
+header {
+    position: relative;
+}
+
+/* 
+Bilden på en kaka som sidans logo.
+Källa till Cookie7 bilden: AI-genererad med ChatGPT (OpenAI), 2026.
+
+::before används för att skapa ett extra, dekorativt element före inehållet i header*/
+header::before {
+    content: "";
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 200px;
+    height: 200px;
+    background-image: url("bilder/Cookie7.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Underrubriker, storlek */
+h2 {
+    font-size: 32px;
+}
+
+/* Brödtext, begränsar bredden */
+p {
+    max-width: 65ch;
+}
+
+/* Sidhuvuds utseende. Header innehåller en bakgrundbild, en svart gradient, rubrik och intro text*/
+header {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+        url("bilder/ingredients.webp");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    min-height: 450px;
+    padding: 30px;
+    color: white;
+}
+
+/* Rubriken i sidhuvudet. Gäller i header och kan ersätta vissa almänna h1 inställningar ovan */
+header h1 {
+    color: white;
+    text-align: center;
+    font-size: 100px;
+    margin-top: 0;
+}
+
+/* Underrubriken och texten i sidhuvudet, färg */
+header h2,
+header p {
+    color: white;
+}
+/* Storleken på texten under rubriken */
+header p {
+    font-size: 24px;
+}
+
+/* Begränsa introduktionstextens bredd och position*/
+header section {
+    max-width: 900px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Navigeringsmenyn */
+nav {
+    background-color: #fffaf2;
+    padding: 15px 20px;
+    text-align: center;
+      border: 1px solid #e5d5c2;
+}
+
+/* Rubriken ovanför menyn */
+nav h2 {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0 0 12px;
+}
+
+/* Tar bort listans vanliga punkter och standardmariginaler */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Menylänkarna och dess utseende */
+nav a {
+    display: block;
+    background-color: #f8f0df;
+    color: #563b30;
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 1px solid #e5d5c2;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* När muspekaren ligger över en länk, ändras färg */
+nav a:hover {
+    background-color: #79543f;
+    color: white;
+}
+
+/* Receptkorten. Grid delar upp kortet i kolumner, 
+så att bild och text kan placeras bredvid varandra*/
+article {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 30px;
+
+    background-color: #fffaf5;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #e5d5c2;
+}
+
+/* Receptets rubrik sträcker sig över båda kolumnerna.
+1/-1 betyder att rubriken börjar vi första kolumnen */
+article h2 {
+    grid-column: 1 / -1;
+}
+
+/* Bilden placeras i vänster kolumn (första kolumn) */
+article > figure {
+    grid-column: 1;
+    margin: 0;
+}
+
+/* Texten placeras i höger kolumn */
+.recipe-content {
+    grid-column: 2;
+}
+
+/* Bilder i receptkorten i article */
+article figure img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    border-radius: 5px;
+}
+
+/* Bildtext */
+article figcaption {
+    font-size: 12px;
+}
+
+/* Bildtexten under bilden */
+article figcaption {
+    font-size: 12px;
+}
+
+/* Finska pinnar väljer det html elenet som har id="finska-pinnar".
+Den h'r regeln ger detta receptkortet en egen grid leyout */
+#finska-pinnar {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* Fexbox används f;r att placera bilderna under varandra */
+#finska-pinnar .recipe-images {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Varje figur inuti bildbehållaren. Flex:1 betyder att bilderna kan dela på det tillgängliga utrymmet */
+#finska-pinnar .recipe-images figure {
+    flex: 1;
+    margin: 0 0 10px;
+    min-height: 0;
+}
+
+/* Bilderna i kolumn med bilder i finska pinnar */
+#finska-pinnar .recipe-images img {
+    width: 100%;
+    height: 90%;
+    min-height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Texten placeras i högra kolumnen i finska pinnar */
+#finska-pinnar .recipe-content {
+    grid-column: 2;
+}
+
+/* Tillbaka till toppen knapp. */
+.back-to-top {
+    text-align: center;
+    margin: 50px 0 40px;
+    width: 100%;
+}
+
+/* Länken ser ut som en knapp.
+display: inline-block gör att länken kan få padding och storlek, men ligga centrerat */
+.back-to-top a {
+    display: inline-block;
+    background-color: #79543f;
+    color: white;
+    text-decoration: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-size: 20px;
+}
+
+/* Här ats bort begränsningen av text bredden som gäller för vanliga p element
+Stycket inuti kanppen. */
+.back-to-top p {
+    max-width: none;
+    margin: 0 auto;
+}
+
+/* Ändrar färg när muspekaren är över den */
+.back-to-top a:hover {
+    background-color: #563b30;
+}
+
+/* Sidfot med bakgrundsbild.
+Samma bakrundsbild som i sidhuvudet */
+footer {
+    background-image: url("bilder/ingredients.webp");
+    background-size: cover;
+    background-position: center;
+    min-height: 115px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+/* Stycken som ligger i sidfoten. Tar bort standardmariginalen och breddbegränsningen*/
+footer p {
+    margin: 0;
+    max-width: none;
+}
